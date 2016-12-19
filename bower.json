@@ -1,0 +1,22 @@
+{
+  "name": "bc_osc_comsol",
+  "homepage": "https://github.com/OSC/bc_osc_comsol",
+  "authors": [
+    "Jeremy Nicklas <jnicklas@osc.edu>"
+  ],
+  "description": "Batch Connect - OSC COMSOL Multiphysics",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "template",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bc_fvwm_assets": "git://github.com/OSC/bc_fvwm_assets.git#0.0.x"
+  }
+}

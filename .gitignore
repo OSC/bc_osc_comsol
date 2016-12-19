@@ -1,0 +1,5 @@
+/node_modules/
+/tmp/
+
+# Ignore assets
+/template/bc_fvwm_assets/

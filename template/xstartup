@@ -1,0 +1,22 @@
+#!/bin/bash -l
+
+# Launch FVWM
+FVWM_ASSETS_ROOT="${ROOT}/bc_fvwm_assets/template"
+FVWM_ROOT="${FVWM_ASSETS_ROOT}" "${FVWM_ASSETS_ROOT}/fvwm_wrapper" -f "${ROOT}/fvwm/fvwmrc" &
+
+# Load the COMSOL module
+module load ${COMSOL_MODULE}
+
+#
+# Start COMSOL Multiphysics
+#
+
+if [[ ${GPU_OFF} ]]; then
+  comsol -3drend sw
+else
+  module load virtualgl
+  vglrun comsol
+fi
+
+# Kill vncserver when user closes GUI
+vncserver -kill ${DISPLAY}
