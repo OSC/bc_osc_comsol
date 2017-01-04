@@ -1,5 +1,8 @@
 # Batch Connect - OSC COMSOL Multiphysics
 
+![GitHub Release](https://img.shields.io/github/release/osc/bc_osc_comsol.svg)
+![GitHub License](https://img.shields.io/github/license/osc/bc_osc_comsol.svg)
+
 A VNCSim app designed for OSC OnDemand that launches COMSOL Multiphysics within
 an Oakley batch job.
 
