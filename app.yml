@@ -1,6 +1,7 @@
 title: 'COMSOL Multiphysics'
 compute:
-  - name: 'COMSOL Multiphysics 5.1 (Software Rendering)'
+  - &comsol_software
+    name: 'COMSOL Multiphysics 5.1 (Software Rendering)'
     batch: 'oakley'
     node:
       - type: 'any'
@@ -23,9 +24,10 @@ compute:
       envvars:
         COMSOL_MODULE: 'comsol/51'
         GPU_OFF: '1'
-      resources:
+      resources: &resources
         software: 'comsolscript'
-  - name: 'COMSOL Multiphysics 5.1 (Hardware Rendering)'
+  - &comsol_hardware
+    name: 'COMSOL Multiphysics 5.1 (Hardware Rendering)'
     batch: 'oakley'
     node:
       - type: 'vis'
@@ -36,5 +38,17 @@ compute:
     pbs:
       envvars:
         COMSOL_MODULE: 'comsol/51'
-      resources:
-        software: 'comsolscript'
+      resources: *resources
+  - <<: *comsol_software
+    name: 'COMSOL Multiphysics 5.2a (Software Rendering)'
+    pbs:
+      envvars:
+        COMSOL_MODULE: 'comsol/52a'
+        GPU_OFF: '1'
+      resources: *resources
+  - <<: *comsol_hardware
+    name: 'COMSOL Multiphysics 5.2a (Hardware Rendering)'
+    pbs:
+      envvars:
+        COMSOL_MODULE: 'comsol/52a'
+      resources: *resources
