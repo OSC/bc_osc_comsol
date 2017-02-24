@@ -30,7 +30,8 @@ compute:
     name: 'COMSOL Multiphysics 5.1 (Hardware Rendering)'
     batch: 'oakley'
     node:
-      - type: 'vis'
+      - title: 'vis'
+        type: 'vis:gpus=1'
         ppn: 12
         desc: >
           This node may come with 1 to 2 Nvidia GPUs. Allows for 3D
