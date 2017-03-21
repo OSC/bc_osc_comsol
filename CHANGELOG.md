@@ -3,6 +3,7 @@
 Bugfixes:
 
   - specify gpus when requesting `vis` node
+  - set working directory to `$HOME`
 
 ## 0.0.2 (2017-01-10)
 

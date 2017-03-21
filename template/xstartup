@@ -7,6 +7,9 @@ FVWM_ROOT="${FVWM_ASSETS_ROOT}" "${FVWM_ASSETS_ROOT}/fvwm_wrapper" -f "${ROOT}/f
 # Load the COMSOL module
 module load ${COMSOL_MODULE}
 
+# Set working directory to home directory
+cd ${HOME}
+
 #
 # Start COMSOL Multiphysics
 #
