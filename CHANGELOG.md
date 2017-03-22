@@ -1,5 +1,7 @@
 ## Unreleased
 
+## 0.0.3 (2017-03-22)
+
 Bugfixes:
 
   - specify gpus when requesting `vis` node
