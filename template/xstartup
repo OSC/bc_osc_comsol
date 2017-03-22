@@ -1,14 +1,14 @@
 #!/bin/bash -l
 
+# Set working directory to home directory
+cd "${HOME}"
+
 # Launch FVWM
 FVWM_ASSETS_ROOT="${ROOT}/bc_fvwm_assets/template"
 FVWM_ROOT="${FVWM_ASSETS_ROOT}" "${FVWM_ASSETS_ROOT}/fvwm_wrapper" -f "${ROOT}/fvwm/fvwmrc" &
 
 # Load the COMSOL module
 module load ${COMSOL_MODULE}
-
-# Set working directory to home directory
-cd "${HOME}"
 
 #
 # Start COMSOL Multiphysics
