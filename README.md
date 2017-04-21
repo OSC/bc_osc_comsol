@@ -10,51 +10,43 @@ an Oakley batch job.
 
 1. Git clone this app in the desired location and go into the directory:
 
-  ```sh
-  git clone <repo> bc_osc_comsol
+   ```sh
+   git clone <repo> bc_osc_comsol
 
-  cd bc_osc_comsol
-  ```
+   cd bc_osc_comsol
+   ```
 
 2. Checkout the version of the app you want to deploy:
 
-  ```sh
-  git checkout <tag>
-  ```
-
-2. This app requires the
-   [bc_fvwm_assets](https://github.com/OSC/bc_fvwm_assets) Bower asset, so we
-   will need a local copy of Bower:
-
    ```sh
-   npm install bower
+   git checkout <tag>
    ```
 
-3. Install the Bower asset:
+3. Setup the app for use:
 
-  ```sh
-  node_modules/.bin/bower install
-  ```
+   ```sh
+   bin/setup
+   ```
 
 ## Update
 
 1. Fetch the updated code:
 
-  ```sh
-  git fetch
-  ```
+   ```sh
+   git fetch
+   ```
 
 2. Checkout the desired tag:
 
-  ```sh
-  git checkout <tag>
-  ```
+   ```sh
+   git checkout <tag>
+   ```
 
-3. Update the Bower assets:
+3. Setup the app for use:
 
-  ```sh
-  node_modules/.bin/bower update --force
-  ```
+   ```sh
+   bin/setup
+   ```
 
 ## Specification
 

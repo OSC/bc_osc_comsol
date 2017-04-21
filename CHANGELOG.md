@@ -1,5 +1,9 @@
 ## Unreleased
 
+Features:
+
+  - added `bin/setup` script for easier deployment
+
 ## 0.0.4 (2017-03-22)
 
 Bugfixes:
