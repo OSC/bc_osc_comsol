@@ -1,0 +1,26 @@
+#-----------------------------------------------------------------------------#
+#
+# Now define the menus
+#
+#-----------------------------------------------------------------------------#
+
+#------------------------------------------------------------------------------
+#--------- Taskbar's start menu
+#------------------------------------------------------------------------------
+
+DestroyMenu StartMenu
+AddToMenu   StartMenu
++ "&Terminal"   Exec exec gnome-terminal
++ "&Htop"       Exec exec xterm -T Htop -n Htop -e htop
+
+#------------------------------------------------------------------------------
+# A trimmed down version of "Window Ops", good for binding to TaskBar
+
+DestroyMenu FvwmWindowOpsMenu
+AddToMenu FvwmWindowOpsMenu "Window Operations" Title
++ "&Move" Move
++ "&Resize" Resize
++ "(De)&Iconify" Iconify
++ "(Un)M&aximize" MaximizeAndRaise
++ "" Nop
++ "&Close" Close

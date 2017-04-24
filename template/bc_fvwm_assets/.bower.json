@@ -1,0 +1,28 @@
+{
+  "name": "bc_fvwm_assets",
+  "homepage": "https://github.com/OSC/bc_fvwm_assets",
+  "authors": [
+    "Jeremy Nicklas <jnicklas@osc.edu>"
+  ],
+  "description": "Batch Connect - FVWM Assets",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "version": "0.0.1",
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.1",
+    "commit": "7d70acdcad9f61321a7359cf79539dac05459556"
+  },
+  "_source": "git://github.com/OSC/bc_fvwm_assets.git",
+  "_target": "0.0.x",
+  "_originalSource": "git://github.com/OSC/bc_fvwm_assets.git"
+}

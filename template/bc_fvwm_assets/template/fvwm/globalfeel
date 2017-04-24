@@ -1,0 +1,52 @@
+#-----------------------------------------------------------------------------#
+#
+# Set up the major operating modes
+#
+#-----------------------------------------------------------------------------#
+
+Emulate Win
+
+# Specifies the percentage of a page to scroll when the cursor hits the edge of a page
+EdgeScroll 100 100
+
+# Tells fvwm the maximum size window with which opaque window movement should be used
+OpaqueMoveSize 100
+Style * ResizeOpaque
+Style * WindowShadeSteps 20
+
+# ClickToFocus - give focus to a window when it is clicked
+Style * ClickToFocus
+
+# Start Windows in the top left corner unless the application specifies otherwise
+Style * CascadePlacement
+
+# ignore the program specified position (PPosition hint) when adding new windows
+Style * !UsePPosition
+
+# ignore the user specified position when adding new windows
+Style * !UseUSPosition
+
+#----------------------------------------------------------------------------#
+#
+# Miscellaneous Major operating mode
+#
+#----------------------------------------------------------------------------#
+
+#------------------------------------------------------------------------------
+# Set the desk top size in units of physical screen size
+#------------------------------------------------------------------------------
+
+DeskTopSize 1x1
+
+#------------------------------------------------------------------------------
+# Some good things (in general)
+#------------------------------------------------------------------------------
+
+Style * MWMDecor
+Style * NoFuncHint
+
+# Wine fix
+Style * Lenience
+
+# Make sure maximized windows don't appear under taskbar
+EwmhBaseStruts 0 0 35 0

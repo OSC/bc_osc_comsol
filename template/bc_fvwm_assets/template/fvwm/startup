@@ -1,0 +1,28 @@
+#-----------------------------------------------------------------------------#
+#
+# Stuff to do at start-up and on restart
+#
+#-----------------------------------------------------------------------------#
+
+# The StartFunction is used at start and restart with or without a Session
+# Manager.
+
+AddToFunc StartFunction
++ I Module FvwmTaskBar
+
+# The InitFunction is used at FVWM start
+
+AddToFunc InitFunction
+
+# The restart function:
+
+AddToFunc RestartFunction
+
+#
+# When used with a session manager FVWM uses SessionInitFunction and
+# SessionRestartFunction in the place of  InitFunction and RestartFunction
+#
+
+AddToFunc SessionInitFunction
+
+AddToFunc SessionRestartFunction

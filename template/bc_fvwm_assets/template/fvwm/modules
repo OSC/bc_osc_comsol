@@ -1,0 +1,35 @@
+#-----------------------------------------------------------------------------#
+#
+# Definitions used by the modules
+#
+#-----------------------------------------------------------------------------#
+
+#------------------------------------------------------------------------------
+#------------------ FvwmTaskBar
+#------------------------------------------------------------------------------
+
+Style "FvwmTaskBar" NoTitle, !Borders, !Handles, Sticky, \
+  StaysOnTop, WindowListSkip, CirculateSkip, !Iconifiable, TitleAtBottom
+# Note: Title at bottom is for shading.
+
+*FvwmTaskBar: Geometry +0+0
+*FvwmTaskBar: Fore Black
+*FvwmTaskBar: Back #c3c3c3
+*FvwmTaskBar: Font -*-helvetica-medium-r-*-*-14-*-*-*-*-*-*-*
+*FvwmTaskBar: SelFont -*-helvetica-bold-r-*-*-14-*-*-*-*-*-*-*
+*FvwmTaskBar: StatusFont -*-helvetica-medium-r-*-*-16-*-*-*-*-*-*-*
+*FvwmTaskBar: Action Click1 DeiconifyFocusAndRaise
+*FvwmTaskBar: Action Click2 Iconify On
+*FvwmTaskBar: Action Click3 Menu FvwmWindowOpsMenu Rectangle $widthx$height+$left+$top c+0 +100
+*FvwmTaskBar: UseSkipList
+*FvwmTaskBar: UseIconNames
+*FvwmTaskBar: AutoStick
+*FvwmTaskBar: ShowTips
+*FvwmTaskBar: ShowTransients
+*FvwmTaskBar: NoIconAction SendToModule FvwmAnimate animate
+*FvwmTaskBar: ButtonWidth 180
+*FvwmTaskBar: ClockFormat %I:%M %p
+*FvwmTaskBar: DateFormat %a %b %d
+*FvwmTaskBar: StartName Start
+*FvwmTaskBar: StartCommand Popup StartMenu Rectangle $widthx$height+$left+$top 0 +100
+*FvwmTaskBar: StartIcon start.xpm
