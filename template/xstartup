@@ -3,17 +3,37 @@
 # Set working directory to home directory
 cd "${HOME}"
 
-# Launch FVWM
-FVWM_ASSETS_ROOT="${ROOT}/bc_fvwm_assets/template"
-FVWM_ROOT="${FVWM_ASSETS_ROOT}" "${FVWM_ASSETS_ROOT}/fvwm_wrapper" -f "${ROOT}/fvwm/fvwmrc" &
+# Restore the module environment to avoid conflicts
+module restore
 
-# Load the COMSOL module
-module load ${COMSOL_MODULE}
+#
+# Launch Fluxbox
+#
+
+FLUXBOX_RC_FILE="${PBS_O_WORKDIR}/${PBS_JOBID}.rc"
+FLUXBOX_ASSETS_ROOT="${ROOT}/fluxbox"
+
+# Build Fluxbox init file
+cat > "${FLUXBOX_RC_FILE}" << EOT
+session.screen0.toolbar.widthPercent: 60
+session.menuFile: $FLUXBOX_ASSETS_ROOT/menu
+session.keyFile: $FLUXBOX_ASSETS_ROOT/keys
+EOT
+
+# Export the module function for the terminal
+[[ $(type -t module) == "function" ]] && export -f module
+
+# Start the Fluxbox window manager
+fluxbox -display "${DISPLAY}.0" -rc "${FLUXBOX_RC_FILE}" &
 
 #
 # Start COMSOL Multiphysics
 #
 
+# Load the COMSOL module
+module load ${COMSOL_MODULE}
+
+# Launch COMSOL Multiphysics
 if [[ ${GPU_OFF} ]]; then
   comsol -3drend sw
 else

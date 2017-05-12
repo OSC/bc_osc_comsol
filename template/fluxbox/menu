@@ -1,0 +1,6 @@
+[begin] (OnDemand)
+  [encoding] {UTF-8}
+    [exec] (xterm) {xterm -fa 'Monospace' -fs 10}
+    [exec] (top) {xterm -fa 'Monospace' -fs 10 -e top}
+  [endencoding]
+[end]

@@ -14,8 +14,5 @@
     "bower_components",
     "test",
     "tests"
-  ],
-  "dependencies": {
-    "bc_fvwm_assets": "git://github.com/OSC/bc_fvwm_assets.git#0.0.x"
-  }
+  ]
 }
