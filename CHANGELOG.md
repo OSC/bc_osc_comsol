@@ -1,5 +1,7 @@
 ## Unreleased
 
+## 0.0.7 (2017-05-12)
+
 Features:
 
   - remove FVWM and added Fluxbox as the window manager
