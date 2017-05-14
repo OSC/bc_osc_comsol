@@ -1,5 +1,9 @@
 ## Unreleased
 
+Bugfixes:
+
+  - future-proof fluxbox configuration
+
 ## 0.0.7 (2017-05-12)
 
 Features:

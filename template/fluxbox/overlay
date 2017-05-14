@@ -1,5 +1,4 @@
 toolbar.height: 40
-toolbar.widthPercent: 60
 toolbar.iconbar.focused.font: sans-12:bold
 toolbar.iconbar.unfocused.font: sans-12
 toolbar.clock.font: sans-12

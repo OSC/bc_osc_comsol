@@ -15,6 +15,8 @@ FLUXBOX_ASSETS_ROOT="${ROOT}/fluxbox"
 
 # Build Fluxbox init file
 cat > "${FLUXBOX_RC_FILE}" << EOT
+session.configVersion: 13
+session.screen0.toolbar.widthPercent: 60
 session.screen0.toolbar.tools: prevworkspace, workspacename, nextworkspace, iconbar, systemtray, prevwindow, nextwindow, clock
 session.menuFile: $FLUXBOX_ASSETS_ROOT/menu
 session.keyFile: $FLUXBOX_ASSETS_ROOT/keys
@@ -25,7 +27,7 @@ EOT
 [[ $(type -t module) == "function" ]] && export -f module
 
 # Start the Fluxbox window manager
-fluxbox -display "${DISPLAY}.0" -rc "${FLUXBOX_RC_FILE}" &
+FLUXBOX_ASSETS_ROOT="${FLUXBOX_ASSETS_ROOT}" fluxbox -display "${DISPLAY}.0" -rc "${FLUXBOX_RC_FILE}" &
 
 #
 # Start COMSOL Multiphysics
