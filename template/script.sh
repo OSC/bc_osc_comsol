@@ -1,17 +1,20 @@
 #!/bin/bash -l
 
+# Get current working directory
+export OUTPUT_ROOT="${PWD}"
+
+# Get source directory of this script
+export STAGED_ROOT="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+
 # Set working directory to home directory
 cd "${HOME}"
-
-# Restore the module environment to avoid conflicts
-module restore
 
 #
 # Launch Fluxbox
 #
 
-FLUXBOX_RC_FILE="${PBS_O_WORKDIR}/${PBS_JOBID}.rc"
-FLUXBOX_ASSETS_ROOT="${ROOT}/fluxbox"
+FLUXBOX_RC_FILE="${OUTPUT_ROOT}/fluxbox.rc"
+FLUXBOX_ASSETS_ROOT="${STAGED_ROOT}/fluxbox"
 
 # Build Fluxbox init file
 cat > "${FLUXBOX_RC_FILE}" << EOT
@@ -26,23 +29,30 @@ EOT
 # Export the module function for the terminal
 [[ $(type -t module) == "function" ]] && export -f module
 
-# Start the Fluxbox window manager
-FLUXBOX_ASSETS_ROOT="${FLUXBOX_ASSETS_ROOT}" fluxbox -display "${DISPLAY}.0" -rc "${FLUXBOX_RC_FILE}" &
+# Start the Fluxbox window manager (it likes to crash on occassion, make it
+# persistent)
+(
+  export FLUXBOX_ASSETS_ROOT="${FLUXBOX_ASSETS_ROOT}"
+  until fluxbox -display "${DISPLAY}.0" -rc "${FLUXBOX_RC_FILE}"; do
+    echo "Fluxbox crashed with exit code $?. Respawning..." >&2
+    sleep 1
+  done
+) &
 
 #
 # Start COMSOL Multiphysics
 #
 
+# Restore the module environment to avoid conflicts
+module restore
+
 # Load the COMSOL module
 module load ${COMSOL_MODULE}
 
 # Launch COMSOL Multiphysics
-if [[ ${GPU_OFF} ]]; then
-  comsol -3drend sw
-else
+if [[ ${ENABLE_VIS} ]]; then
   module load virtualgl
   vglrun comsol
+else
+  comsol -3drend sw
 fi
-
-# Kill vncserver when user closes GUI
-vncserver -kill ${DISPLAY}
