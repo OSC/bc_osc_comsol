@@ -7,6 +7,8 @@ description: |
 attributes:
   bc_vnc_resolution:
     required: true
+  bc_account:
+    help: "You can leave this blank if **not** in multiple projects."
   node_type:
     widget: select
     label: "Node type"
