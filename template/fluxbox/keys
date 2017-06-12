@@ -12,3 +12,7 @@ OnTitlebar Mouse3 :WindowMenu
 
 # double click on the titlebar to maximize
 OnTitlebar Double Mouse1 :Maximize
+
+# resize from bottom left or right corners
+OnLeftGrip Move1 :StartResizing bottomleft
+OnRightGrip Move1 :StartResizing bottomright

@@ -16,6 +16,12 @@ cd "${HOME}"
 FLUXBOX_RC_FILE="${OUTPUT_ROOT}/fluxbox.rc"
 FLUXBOX_ASSETS_ROOT="${STAGED_ROOT}/fluxbox"
 
+# Create Fluxbox root or it will override the below init file
+(
+  umask 077
+  mkdir -p "${HOME}/.fluxbox"
+)
+
 # Build Fluxbox init file
 cat > "${FLUXBOX_RC_FILE}" << EOT
 session.configVersion: 13
