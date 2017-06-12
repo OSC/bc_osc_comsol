@@ -3,8 +3,8 @@
 ![GitHub Release](https://img.shields.io/github/release/osc/bc_osc_comsol.svg)
 ![GitHub License](https://img.shields.io/github/license/osc/bc_osc_comsol.svg)
 
-A VNCSim app designed for OSC OnDemand that launches COMSOL Multiphysics within
-an Oakley batch job.
+A Batch Connect app designed for OSC OnDemand that launches COMSOL Multiphysics
+within an Oakley batch job.
 
 ## Prerequisites
 
@@ -15,15 +15,15 @@ batch job is intended to run on:
 - [Lmod](https://www.tacc.utexas.edu/research-development/tacc-projects/lmod) 6.0.1+
 - [Fluxbox](http://fluxbox.org/) 1.1.1+
 
+For VNC server support:
+
+- [TurboVNC](http://www.turbovnc.org/) 2.1+
+- [websockify](https://github.com/novnc/websockify) 0.8.0+
+
 For hardware rendering support:
 
 - [X server](https://www.x.org/)
 - [VirtualGL](http://www.virtualgl.org/) 2.3+
-
-For VNC server support:
-
-- [TurboVNC](http://www.turbovnc.org/) 2.1+
-- [noVNC](https://github.com/novnc/noVNC) 0.6.2+
 
 ## Install
 
@@ -31,9 +31,9 @@ Use git to clone this app and checkout the desired branch/version you want to
 use:
 
 ```sh
-git clone <repo>
+scl enable git19 -- git clone <repo>
 cd <dir>
-git checkout <tag/branch>
+scl enable git19 -- git checkout <tag/branch>
 ```
 
 You will not need to do anything beyond this as all necessary assets are
@@ -44,29 +44,13 @@ To update the app you would:
 
 ```sh
 cd <dir>
-git fetch
-git checkout <tag/branch>
+scl enable git19 -- git fetch
+scl enable git19 -- git checkout <tag/branch>
 ```
 
 Again, you do not need to restart the app as it isn't a Passenger app.
 
-## Specification
-
-### ROOT
-
-All assets in this package look for dependencies in the specified `$ROOT`
-directory. This should be set to correspond to the included `template/`
-directory.
-
-An example running the `xstartup` script included in this package:
-
-```sh
-# Path where you installed this project
-BC_OSC_COMSOL_DIR="/path/to/bc_osc_comsol/template"
-
-# Run the `xstartup` script with proper `$ROOT` set
-ROOT="${BC_OSC_COMSOL_DIR}" ${BC_OSC_COMSOL_DIR}/xstartup
-```
+## Template Specification
 
 ### COMSOL_MODULE
 
@@ -76,17 +60,17 @@ also assumes module support through the
 package manager is installed on the running compute node as well as the
 requested module in `$COMSOL_MODULE`.
 
-### GPU_OFF
+### ENABLE_VIS
 
 *Optional*
 
-If this environment variables is set, then it will run the COMSOL Multiphysics
+If this environment variables is not set (default), then it will run the Abaqus
 GUI in software rendering mode.
 
-If this is unset (default), then it will use
-[VirtualGL](http://www.virtualgl.org/) giving the COMSOL Multiphysics GUI full
-3D hardware acceleration support inside the VNC session. Note that an `Xorg`
-server must be running on the compute node with a GPU for this to be supported.
+If this is set, then it will use [VirtualGL](http://www.virtualgl.org/) giving
+the COMSOL Multiphysics GUI full 3D hardware acceleration support inside the
+VNC session. Note that an `Xorg` server must be running on the compute node
+with a GPU for this to be supported.
 
 ## Contributing
 

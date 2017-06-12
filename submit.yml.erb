@@ -1,0 +1,16 @@
+---
+batch_connect:
+  template: vnc
+
+script:
+  job_environment:
+    <%- unless version.blank? -%>
+    COMSOL_MODULE: "<%= version %>"
+    <%- end -%>
+    <%- if node_type.include? "vis" -%>
+    ENABLE_VIS: "1"
+    <%- end -%>
+  native:
+    resources:
+      nodes: "<%= bc_num_slots %><%= node_type %>"
+      software: "comsolscript"

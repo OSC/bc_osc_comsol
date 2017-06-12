@@ -1,10 +1,5 @@
 ---
 name: COMSOL Multiphysics
-description: |-
-  **COMSOL Multiphysics** provides access to the COMSOL Multiphysics GUI on one
-  or more compute nodes on the Oakley cluster at the Ohio Supercomputer Center
-  (OSC).
-category: Desktop Apps
-subcategory: Interactive HPC
-role: ihpc
-url: /pun/sys/vncsim/%{app_token}/sessions
+category: Interactive Apps
+subcategory: GUIs
+role: batch_connect
