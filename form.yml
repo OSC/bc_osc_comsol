@@ -36,6 +36,7 @@ attributes:
     options:
       - ["5.1", "comsol/51"]
       - ["5.2a", "comsol/52a"]
+      - ["5.3", "comsol/53"]
 form:
   - version
   - bc_num_hours

@@ -1,5 +1,10 @@
 ## Unreleased
 
+Features:
+
+  - Added support for COMSOL 5.3 on Oakley.
+    [#3](https://github.com/OSC/bc_osc_comsol/issues/3)
+
 ## 0.1.0 (2017-06-14)
 
 Features:
