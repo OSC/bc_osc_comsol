@@ -1,5 +1,7 @@
 ## Unreleased
 
+## 0.1.1 (2017-06-23)
+
 Features:
 
   - Added support for COMSOL 5.3 on Oakley.
