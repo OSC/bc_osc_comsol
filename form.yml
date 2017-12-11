@@ -26,12 +26,7 @@ attributes:
       - ["any", ":ppn=28"]
       - ["vis", ":ppn=28:vis:gpus=1"]
       - ["hugemem", ":ppn=48:hugemem"]
-  version:
-    widget: select
-    label: "COMSOL Multiphysics version"
-    help: "This defines the version of COMSOL you want to load."
-    options:
-      - ["5.2a", "comsol/52a"]
+  version: "comsol/52a"
 form:
   - version
   - bc_num_hours
