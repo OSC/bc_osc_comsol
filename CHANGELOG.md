@@ -1,5 +1,9 @@
 ## Unreleased
 
+Changes:
+
+  - Updated to run jobs on Owens cluster.
+
 ## 0.1.1 (2017-06-23)
 
 Features:

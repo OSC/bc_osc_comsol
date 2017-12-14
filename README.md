@@ -4,7 +4,7 @@
 ![GitHub License](https://img.shields.io/github/license/osc/bc_osc_comsol.svg)
 
 A Batch Connect app designed for OSC OnDemand that launches COMSOL Multiphysics
-within an Oakley batch job.
+within an Owens batch job.
 
 ## Prerequisites
 

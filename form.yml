@@ -1,8 +1,8 @@
 ---
 title: "COMSOL Multiphysics"
-cluster: "oakley"
+cluster: "owens"
 description: |
-  This app will launch a COMSOL Multiphysics GUI on one or more Oakley nodes.
+  This app will launch a COMSOL Multiphysics GUI on one or more Owens nodes.
   You will be able to interact with the COMSOL GUI through a VNC session.
 attributes:
   bc_vnc_resolution:
@@ -13,30 +13,20 @@ attributes:
     widget: select
     label: "Node type"
     help: |
-      - **any** - (*12 cores*) Chooses anyone of the available Oakley nodes.
-        This reduces the wait time as you have no requirements.
-      - **vis** - (*12 cores*) This node includes an NVIDIA Tesla M2070 GPU
+      - **any** - (*28 cores*) Use any available Owens node. This reduces the
+        wait time as there are no node requirements.
+      - **vis** - (*28 cores*) This node includes an NVIDIA Tesla P100 GPU
         with an X server running in the background. This allows for Hardware
         Rendering with the GPU typically needed for 3D visualization using
-        VirtualGL. There are currently only 128 of these nodes on Oakley.
-      - **bigmem** - (*12 cores*) This Oakley node comes with 192GB of
-        available RAM. There are only 8 of these nodes on Oakley.
-      - **hugemem** - (*32 cores*) This Oakley node has 1TB of available RAM as
-        well as 32 cores. There is only 1 of these nodes on Oakley. A
-        reservation may be required to use this node.
+        VirtualGL. There are currently only 160 of these nodes on Owens.
+      - **hugemem** - (*48 cores*) Use an Owens node that has 1.5TB of
+        available RAM as well as 48 cores. There are 16 of these nodes on
+        Owens.
     options:
-      - ["any", ":ppn=12"]
-      - ["vis", ":ppn=12:vis:gpus=1"]
-      - ["bigmem", ":ppn=12:bigmem"]
-      - ["hugemem", ":ppn=32:hugemem"]
-  version:
-    widget: select
-    label: "COMSOL Multiphysics version"
-    help: "This defines the version of COMSOL you want to load."
-    options:
-      - ["5.1", "comsol/51"]
-      - ["5.2a", "comsol/52a"]
-      - ["5.3", "comsol/53"]
+      - ["any", ":ppn=28"]
+      - ["vis", ":ppn=28:vis:gpus=1"]
+      - ["hugemem", ":ppn=48:hugemem"]
+  version: "comsol/52a"
 form:
   - version
   - bc_num_hours
