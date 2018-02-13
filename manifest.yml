@@ -3,3 +3,7 @@ name: COMSOL Multiphysics
 category: Interactive Apps
 subcategory: GUIs
 role: batch_connect
+description: |
+  This app will launch a [COMSOL Multiphysics](https://www.comsol.com/) GUI on one or more [Oakley
+  nodes](https://www.osc.edu/resources/technical_support/supercomputers/oakley). 
+  You will be able to interact with the COMSOL GUI through a VNC session.
