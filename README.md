@@ -13,7 +13,7 @@ This Batch Connect app requires the following software be installed on the
 OnDemand node):
 
 - [COMSOL Multiphysics] 5.1+
-- [Fluxbox] 1.1.1+
+- [Xfce Desktop] 4+
 
 For VNC server support:
 
@@ -31,7 +31,7 @@ For hardware rendering support:
   CLI used to load appropriate environments within the batch job
 
 [COMSOL Multiphysics]: https://www.comsol.com
-[Fluxbox]: http://fluxbox.org/
+[Xfce Desktop]: https://xfce.org/
 [TurboVNC]: http://www.turbovnc.org/
 [websockify]: https://github.com/novnc/websockify
 [X server]: https://www.x.org/

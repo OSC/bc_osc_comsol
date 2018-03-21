@@ -1,8 +1,0 @@
-toolbar.height: 40
-toolbar.iconbar.focused.font: sans-12:bold
-toolbar.iconbar.unfocused.font: sans-12
-toolbar.clock.font: sans-12
-toolbar.workspace.font: sans-12:bold
-window.font: sans-12
-menu.title.font: sans-12
-menu.frame.font: sans-11

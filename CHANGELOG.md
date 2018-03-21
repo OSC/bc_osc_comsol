@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Changed the product icon.
 - Refactored to use the new Dashboard ERB templating.
   [#4](https://github.com/OSC/bc_osc_comsol/issues/4)
+- Switched from using Fluxbox to Xfce for the window manager.
 
 ### Fixed
 - Fixed local configuration not always being ignored.
