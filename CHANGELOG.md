@@ -15,6 +15,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Refactored to use the new Dashboard ERB templating.
   [#4](https://github.com/OSC/bc_osc_comsol/issues/4)
 
+### Fixed
+- Fixed local configuration not always being ignored.
+
 ## [0.2.0] - 2017-12-15
 ### Changed
 - Updated to run jobs on Owens cluster.
