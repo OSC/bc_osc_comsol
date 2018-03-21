@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - Modified the `CHANGELOG.md` formatting.
 - Updated the date in `LICENSE.txt`.
+- Changed the product icon.
 
 ## [0.2.0] - 2017-12-15
 ### Changed
