@@ -10,9 +10,9 @@ form:
   - bc_email_on_started
 attributes:
   bc_vnc_resolution:
-    label: "Project"
     required: true
   bc_account:
+    label: "Project"
     help: "You can leave this blank if **not** in multiple projects."
   node_type:
     widget: select
