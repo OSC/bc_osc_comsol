@@ -1,16 +1,11 @@
+<%-
+  num_nodes = bc_num_slots.blank? ? 1 : bc_num_slots.to_i
+-%>
 ---
 batch_connect:
-  template: vnc
-
+  template: "vnc"
 script:
-  job_environment:
-    <%- unless version.blank? -%>
-    COMSOL_MODULE: "<%= version %>"
-    <%- end -%>
-    <%- if node_type.include? "vis" -%>
-    ENABLE_VIS: "1"
-    <%- end -%>
   native:
     resources:
-      nodes: "<%= bc_num_slots %><%= node_type %>"
+      nodes: "<%= num_nodes %><%= node_type %>"
       software: "comsolscript"

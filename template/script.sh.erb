@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+<%- gpu = context.node_type.include?("vis") -%>
+
+# Clean the environment
+module purge
+
+# Set working directory to home directory
+cd "${HOME}"
+
+#
+# Launch Fluxbox
+#
+
+# Create Fluxbox root or it will override the below init file
+(
+  umask 077
+  mkdir -p "${HOME}/.fluxbox"
+)
+
+# Start the Fluxbox window manager (it likes to crash on occassion, make it
+# persistent)
+(
+until fluxbox -display "${DISPLAY}.0" -rc "<%= session.staged_root.join("fluxbox.rc") %>"; do
+    echo "Fluxbox crashed with exit code $?. Respawning..." >&2
+    sleep 1
+  done
+) &
+
+#
+# Start COMSOL Multiphysics
+#
+
+# Load the required environment
+module load <%= context.version %>
+
+# Launch COMSOL Multiphysics
+<%- if gpu -%>
+module load intel/16.0.3 virtualgl
+module list
+set -x
+vglrun comsol
+<%- else -%>
+module list
+set -x
+comsol -3drend sw
+<%- end -%>

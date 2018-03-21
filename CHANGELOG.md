@@ -5,10 +5,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Added COMSOL 5.3a to the app.
+
 ### Changed
 - Modified the `CHANGELOG.md` formatting.
 - Updated the date in `LICENSE.txt`.
 - Changed the product icon.
+- Refactored to use the new Dashboard ERB templating.
+  [#4](https://github.com/OSC/bc_osc_comsol/issues/4)
 
 ## [0.2.0] - 2017-12-15
 ### Changed

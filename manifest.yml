@@ -4,6 +4,8 @@ category: Interactive Apps
 subcategory: GUIs
 role: batch_connect
 description: |
-  This app will launch a [COMSOL Multiphysics](https://www.comsol.com/) GUI on one or more [Oakley
-  nodes](https://www.osc.edu/resources/technical_support/supercomputers/oakley). 
-  You will be able to interact with the COMSOL GUI through a VNC session.
+  This app will launch a [COMSOL Multiphysics] GUI on the [Owens cluster]. You
+  will be able to interact with the COMSOL GUI through a VNC session.
+
+  [COMSOL Multiphysics]: https://www.comsol.com
+  [Owens cluster]: https://www.osc.edu/resources/technical_support/supercomputers/owens
