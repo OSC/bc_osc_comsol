@@ -36,5 +36,6 @@ attributes:
     label: "COMSOL Multiphysics version"
     help: "This defines the version of COMSOL Multiphysics you want to load."
     options:
+      - ["5.4",  "comsol/5.4"]
       - ["5.3a", "comsol/53a"]
       - ["5.2a", "comsol/52a"]
