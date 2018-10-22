@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.4.0] - 2018-10-22
+### Added
+- Added COMSOL 5.4 to the app.
+
 ## [0.3.0] - 2018-03-21
 ### Added
 - Added COMSOL 5.3a to the app.
@@ -67,7 +71,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Initial release!
 
-[Unreleased]: https://github.com/OSC/bc_osc_comsol/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/OSC/bc_osc_comsol/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/OSC/bc_osc_comsol/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/OSC/bc_osc_comsol/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/OSC/bc_osc_comsol/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/OSC/bc_osc_comsol/compare/v0.1.0...v0.1.1
