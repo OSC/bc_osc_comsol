@@ -5,10 +5,22 @@ form:
   - bc_account
   - bc_num_hours
   - bc_num_slots
+  - num_cores
   - node_type
   - bc_vnc_resolution
   - bc_email_on_started
 attributes:
+  num_cores:
+    widget: "number_field"
+    label: "Number of cores"
+    value: 1
+    id: num_cores
+    help: |
+      Number of cores on node type (4 GB per core unless requesting whole
+      node). Leave blank if requesting full node.
+    min: 1
+    max: 48
+    step: 1
   bc_vnc_resolution:
     required: true
   bc_account:
@@ -28,9 +40,9 @@ attributes:
         available RAM as well as 48 cores. There are 16 of these nodes on
         Owens.
     options:
-      - [ "any",     ":ppn=28"            ]
-      - [ "vis",     ":ppn=28:vis:gpus=1" ]
-      - [ "hugemem", ":ppn=48:hugemem"    ]
+      - [ "any",     ""            ]
+      - [ "vis",     ":vis:gpus=1" ]
+      - [ "hugemem", ":hugemem"    ]
   version:
     widget: select
     label: "COMSOL Multiphysics version"
