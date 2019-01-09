@@ -3,7 +3,11 @@
   max_cores = (node_type == ':hugemem') ? 48 : 28
   num_cores = num_cores.to_i
 
-  num_cores = (num_cores == 0) ? max_cores : [num_cores, max_cores].min
+  if node_type == ':hugemem'
+    num_cores = 48
+  else
+    num_cores = (num_cores == 0) ? max_cores : [num_cores, max_cores].min
+  end
 -%>
 ---
 batch_connect:

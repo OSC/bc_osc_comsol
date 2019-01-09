@@ -38,7 +38,7 @@ attributes:
         accelerated 3D visualization. There are 160 of these nodes on Owens.
       - **hugemem** - (*48 cores*) Use an Owens node that has 1.5TB of
         available RAM as well as 48 cores. There are 16 of these nodes on
-        Owens.
+        Owens. Requesting these nodes always reserve entire nodes.
     options:
       - [ "any",     ""            ]
       - [ "vis",     ":vis:gpus=1" ]
