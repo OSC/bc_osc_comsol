@@ -1,12 +1,12 @@
 <%-
   num_nodes = bc_num_slots.blank? ? 1 : bc_num_slots.to_i
-  max_cores = (node_type == ':hugemem') ? 48 : 28
-  num_cores = num_cores.to_i
+  num_cores_req = num_cores.to_i
 
   if node_type == ':hugemem'
-    num_cores = 48
+    num_cores_req = 48
   else
-    num_cores = (num_cores == 0) ? max_cores : [num_cores, max_cores].min
+    max_cores = 28
+    num_cores_req = (num_cores_req == 0) ? max_cores : [num_cores_req, max_cores].min
   end
 -%>
 ---
@@ -15,5 +15,5 @@ batch_connect:
 script:
   native:
     resources:
-      nodes: "<%= num_nodes %>:ppn=<%= num_cores %><%= node_type %>"
+      nodes: "<%= num_nodes %>:ppn=<%= num_cores_req %><%= node_type %>"
       software: "comsolscript"

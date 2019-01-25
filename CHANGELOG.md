@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.5.2] - 2019-01-25
+### Fixed
+- Fixed bug caused by attempting to assign to attr_reader
+
 ## [0.5.1] - 2019-01-09
 ### Changed
 - Changed hugemem to always request a full node
