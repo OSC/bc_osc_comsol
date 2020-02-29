@@ -77,5 +77,4 @@ Again, you do not need to restart the app as it isn't a Passenger app.
 * Documentation, website content, and logo is licensed under
   [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)
 * Code is licensed under MIT (see LICENSE.txt)
-* COMSOL, COMSOL Multiphysics, COMSOL Desktop, and LiveLink are registered trademarks or trademarks of COMSOL AB. AutoCAD and Inventor are registered trademarks of Autodesk, Inc. LiveLink for
-AutoCAD and LiveLink for Inventor are not affiliated with, endorsed by, sponsored by, or supported by Autodesk, Inc. and/or any of its affiliates and/or subsidiaries.
+* Any and all COMSOL, brand, product, service and feature names, logos and slogans are trademarks or registered trademarks of COMSOL AB.
