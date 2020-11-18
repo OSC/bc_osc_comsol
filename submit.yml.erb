@@ -1,19 +1,34 @@
 <%-
-  num_nodes = bc_num_slots.blank? ? 1 : bc_num_slots.to_i
-  num_cores_req = num_cores.to_i
+  ppn = num_cores.blank? ? 28 : num_cores.to_i
+  nodes = bc_num_slots.blank? ? 1 : bc_num_slots.to_i
+  torque_cluster = OodAppkit.clusters[cluster].job_config[:adapter] == 'torque'
+  base_slurm_args = [ "--nodes", "#{nodes}", "--licenses", "comsolscript@license6" ]
 
-  if node_type == ':hugemem'
-    num_cores_req = 48
+  case node_type
+  when "hugemem"
+    ppn = 48
+    partition = bc_num_slots.to_i > 1 ? "hugemem-parallel" : "hugemem"
+    slurm_args = base_slurm_args + [ "--ntasks-per-node", "#{ppn}", "--partition", partition ]
+    torque_args = "#{nodes}:ppn=#{ppn}:#{node_type}"
+  when "vis"
+    slurm_args = base_slurm_args + [ "--ntasks-per-node", "#{ppn}", "--gpus-per-node", "1", "--gres", "vis" ]
+    torque_args = "#{nodes}:ppn=#{ppn}:#{node_type}:gpus=1"
   else
-    max_cores = 28
-    num_cores_req = (num_cores_req == 0) ? max_cores : [num_cores_req, max_cores].min
+    slurm_args = base_slurm_args + [ "--ntasks-per-node", "#{ppn}" ]
+    torque_args = "#{nodes}:ppn=#{ppn}"
   end
--%>
+%>
 ---
 batch_connect:
-  template: "vnc"
+  template: vnc
 script:
   native:
+  <%- if torque_cluster %>
     resources:
-      nodes: "<%= num_nodes %>:ppn=<%= num_cores_req %><%= node_type %>"
+      nodes: "<%= torque_args %>"
       software: "comsolscript"
+  <%- else %>
+  <%- slurm_args.each do |arg| %>
+    - "<%= arg %>"
+  <%- end %>
+  <%- end %>
