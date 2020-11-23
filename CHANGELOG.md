@@ -7,8 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ## [0.7.1] - 2020-11-22
 ### Changed
-- Changed the license servername for Slurm in
-  [10](https://github.com/OSC/bc_osc_comsol/pull/10)
+- [10](https://github.com/OSC/bc_osc_comsol/pull/10)
+  - Changed the license servername for Slurm
+  - write out the version in RPMs
 
 ## [0.7.0] - 2020-11-18
 ### Added
