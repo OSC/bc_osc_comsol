@@ -42,7 +42,7 @@ if [ -x bin/setup ]; then
     bin/setup
 fi
 cp -a ./. %{buildroot}%{_localstatedir}/www/ood/apps/sys/%{app_name}/
-
+echo v%{version} > %{buildroot}%{_localstatedir}/www/ood/apps/sys/%{app_name}/VERSION
 
 %files
 %defattr(-,root,root)
