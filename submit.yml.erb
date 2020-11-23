@@ -2,7 +2,7 @@
   ppn = num_cores.blank? ? 28 : num_cores.to_i
   nodes = bc_num_slots.blank? ? 1 : bc_num_slots.to_i
   torque_cluster = OodAppkit.clusters[cluster].job_config[:adapter] == 'torque'
-  base_slurm_args = [ "--nodes", "#{nodes}", "--licenses", "comsolscript@license6" ]
+  base_slurm_args = [ "--nodes", "#{nodes}", "--licenses", "comsolscript@osc" ]
 
   case node_type
   when "hugemem"
