@@ -1,7 +1,6 @@
 ---
 cluster:
   - "owens"
-  - "owens-slurm"
 form:
   - version
   - bc_account
