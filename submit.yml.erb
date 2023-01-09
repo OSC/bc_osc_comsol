@@ -5,7 +5,6 @@
 
   case node_type
   when "hugemem"
-    ppn = 48
     partition = bc_num_slots.to_i > 1 ? "hugemem-parallel" : "hugemem"
     slurm_args = base_slurm_args + [ "--ntasks-per-node", "#{ppn}", "--partition", partition ]
   when "vis"
