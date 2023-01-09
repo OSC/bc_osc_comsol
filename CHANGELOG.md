@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.10.0] - 2023-01-09
+
+- Support partial access to hugemem nodes & add module 6.0 in [14](https://github.com/OSC/bc_osc_comsol/pull/14).
+
 ## [0.9.0] - 2021-12-16
 ### Changed
 - [13](https://github.com/OSC/bc_osc_comsol/pull/13)
@@ -117,7 +121,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Initial release!
 
-[Unreleased]: https://github.com/OSC/bc_osc_comsol/compare/v0.9.0...HEAD
+[Unreleased]: https://github.com/OSC/bc_osc_comsol/compare/v0.10.0...HEAD
+[0.10.0]: https://github.com/OSC/bc_osc_comsol/compare/v0.9.0...v0.10.0
 [0.9.0]: https://github.com/OSC/bc_osc_comsol/compare/v0.8.0...v0.9.0
 [0.8.0]: https://github.com/OSC/bc_osc_comsol/compare/v0.7.1...v0.8.0
 [0.7.1]: https://github.com/OSC/bc_osc_comsol/compare/v0.7.0...v0.7.1
