@@ -1,13 +1,7 @@
-<%-
-  groups = OodSupport::User.new.groups.sort_by(&:id).tap { |groups|
-    groups.unshift(groups.delete(OodSupport::Process.group))
-  }.map(&:name).grep(/^P./)
--%>
----
 cluster:
   - "owens"
 form:
-  - auto_modules_comsol
+  - version
   - auto_accounts
   - bc_num_hours
   - bc_num_slots
@@ -16,6 +10,16 @@ form:
   - bc_vnc_resolution
   - bc_email_on_started
 attributes:
+  version:
+    widget: select
+    label: "COMSOL Multiphysics version"
+    help: "This defines the version of COMSOL Multiphysics you want to load."
+    options:
+      - ["6.0",  "comsol/6.0"]
+      - ["5.5",  "comsol/5.5"]
+      - ["5.4",  "comsol/5.4"]
+      - ["5.3a", "comsol/53a"]
+      - ["5.2a", "comsol/52a"]
   num_cores:
     widget: "number_field"
     label: "Number of cores"
@@ -28,13 +32,6 @@ attributes:
     step: 1
   bc_vnc_resolution:
     required: true
-  account:
-    label: "Project"
-    widget: select
-    options:
-      <%- groups.each do |group| %>
-      - "<%= group %>"
-      <%- end %>
   node_type:
     widget: select
     label: "Node type"
