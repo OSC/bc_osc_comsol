@@ -32,7 +32,7 @@ cd "${HOME}"
 #
 
 # Load the required environment
-module load xalt/latest <%= context.version %>
+module load xalt/latest <%= context.auto_modules_comsol %>
 
 # Launch COMSOL Multiphysics
 <%- if gpu -%>
