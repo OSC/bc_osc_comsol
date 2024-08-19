@@ -31,7 +31,10 @@ if [[ "$VERSION_ID" < "9" ]]; then
   xfsettingsd --sm-client-disable
   xfce4-panel --sm-client-disable &
 else
-  echo 'TODO'
+  xfwm4 --compositor=off --sm-client-disable &
+  xsetroot -solid "#D3D3D3"
+  xfsettingsd --sm-client-disable &
+  xfce4-panel --sm-client-disable &
 fi
 
 #
