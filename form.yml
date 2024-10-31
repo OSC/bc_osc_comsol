@@ -1,8 +1,7 @@
 cluster:
-  - "owens"
   - "cardinal"
 form:
-  - auto_modules_comsol
+  - comsol_version
   - auto_accounts
   - bc_num_hours
   - bc_num_slots
@@ -11,6 +10,7 @@ form:
   - bc_vnc_resolution
   - bc_email_on_started
 attributes:
+  comsol_version: 'comsol/6.2'
   num_cores:
     widget: "number_field"
     label: "Number of cores"
@@ -19,7 +19,7 @@ attributes:
       Number of cores on node type (4 GB per core unless requesting whole
       node). Leave blank if requesting full node.
     min: 0
-    max: 28
+    max: 96
     step: 1
   bc_vnc_resolution:
     required: true
@@ -27,28 +27,28 @@ attributes:
     widget: select
     label: "Node type"
     help: |
-      - **any** - (*28 cores*) Use any available Owens node. This reduces the
+      - **any** - (*96 cores*) Use any available Cardinal node. This reduces the
         wait time as there are no node requirements.
-      - **vis** - (*28 cores*) Use an Owens node that has an [NVIDIA Tesla P100
-        GPU](http://www.nvidia.com/object/tesla-p100.html) with an X server
+      - **vis** - (*96 cores*) Use an Cardinal node that has an [NVIDIA H100
+        GPU](https://www.nvidia.com/en-us/data-center/h100/) with an X server
         running in the background. This utilizes the GPU for hardware
-        accelerated 3D visualization. There are 160 of these nodes on Owens.
-      - **hugemem** - (*48 cores*) Use an Owens node that has 1.5TB of
-        available RAM as well as 48 cores. There are 16 of these nodes on
+        accelerated 3D visualization. There are 32 of these nodes on Owens.
+      - **hugemem** - (*96 cores*) Use an Cardinal node that has 2 TB of
+        available RAM as well as 96 cores. There are 16 of these nodes on
         Owens. Requesting these nodes always reserve entire nodes.
     options:
       - [
         'any', 'any',
-        data-max-num-cores: 28,
+        data-max-num-cores: 96,
         data-min-num-cores: 1,
         ]
       - [
         'vis', 'vis',
-        data-max-num-cores: 28,
+        data-max-num-cores: 96,
         data-min-num-cores: 1,
         ]
       - [
         'hugemem', 'hugemem',
-        data-max-num-cores: 48,
-        data-min-num-cores: 4,
+        data-max-num-cores: 96,
+        data-min-num-cores: 43,
         ]
