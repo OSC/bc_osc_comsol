@@ -38,7 +38,7 @@ fi
 #
 
 # Load the required environment
-module load xalt/latest <%= context.comsol_version %>
+module load <%= context.comsol_version %>
 
 # Launch COMSOL Multiphysics
 <%- if gpu -%>
