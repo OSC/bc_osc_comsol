@@ -10,7 +10,17 @@ form:
   - bc_vnc_resolution
   - bc_email_on_started
 attributes:
-  comsol_version: 'comsol/6.2'
+  comsol_version:
+    widget: select
+    label: "Comsol version"
+    help: "This defines the version of Comsol you want to load."
+    options:
+    - [
+        "comsol/6.2", "comsol/6.2",
+      ]
+    - [
+        "comsol/6.4", "comsol/6.4",
+      ]
   num_cores:
     widget: "number_field"
     label: "Number of cores"
