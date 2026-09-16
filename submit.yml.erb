@@ -1,23 +1,39 @@
 <%-
-  ppn = num_cores.blank? ? 28 : num_cores.to_i
-  nodes = bc_num_slots.blank? ? 1 : bc_num_slots.to_i
-  base_slurm_args = [ "--nodes", "#{nodes}", "--licenses", "comsolscript@osc" ]
-
-  case node_type
-  when "hugemem"
-    partition = bc_num_slots.to_i > 1 ? "hugemem-parallel" : "hugemem"
-    slurm_args = base_slurm_args + [ "--ntasks-per-node", "#{ppn}", "--partition", partition ]
-  when "vis"
-    slurm_args = base_slurm_args + [ "--ntasks-per-node", "#{ppn}", "--gpus-per-node", "1", "--gres", "vis" ]
-  else
-    slurm_args = base_slurm_args + [ "--ntasks-per-node", "#{ppn}" ]
-  end
 %>
 ---
 batch_connect:
   template: vnc
 script:
-  native:
-  <%- slurm_args.each do |arg| %>
-    - "<%= arg %>"
+  # set GPUs
+  <%- if global_gpus.to_i > 0 -%>
+  gpus_per_node: <%= global_gpus %>
   <%- end %>
+  native:
+  # set nodes
+  - "--nodes"
+  - "<%= bc_num_slots.to_i %>"
+  # set CPUs
+  - "--ntasks-per-node"
+  - "<%= global_num_cores.to_i %>"
+  # set partition
+  - "--partition"
+  <%- if global_enable_debug.to_i == 1 -%>
+  - "debug"
+  <%- elsif global_gpus.to_i > 0 -%>
+  - "<%= global_gpu_type.split('-').drop(1).join('-') %>"
+  <%- else %>
+  - "batch"
+  <%- end %>
+  # set memory
+  <%- if global_enable_mem.to_i == 1  -%>
+  - "--mem"
+  - "<%= global_mem.to_i%>G"
+  <%- end %>
+  # set visualization
+  <%- if global_enable_vis.to_i == 1 -%>
+  - "--gres"
+  - "vis"
+  <%- end %>
+  # set license
+  - "--licenses"
+  - "comsolscript@osc"

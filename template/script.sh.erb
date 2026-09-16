@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-<%- gpu = context.node_type.include?("vis") -%>
+<%- gpu = context.global_enable_vis.to_i == 1 -%>
 
 # Clean the environment
 module purge
@@ -38,7 +38,7 @@ fi
 #
 
 # Load the required environment
-module load <%= context.comsol_version %>
+module load <%= context.auto_modules_comsol %>
 
 # Launch COMSOL Multiphysics
 <%- if gpu -%>
