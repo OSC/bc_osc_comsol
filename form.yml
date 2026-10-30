@@ -19,5 +19,9 @@ form:
 attributes:
   auto_modules_comsol:
     default: false
+    filter: \d+\.\d+
   bc_vnc_resolution:
     required: true
+  bc_num_hours:
+    min: 1
+    max: 8
