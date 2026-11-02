@@ -19,7 +19,7 @@ form:
 attributes:
   auto_modules_comsol:
     default: false
-    filter: \d+\.\d+
+    filter: \d+\.\d+\D+
   bc_vnc_resolution:
     required: true
   bc_num_hours:
